@@ -159,7 +159,15 @@ require('packer').startup(function(use)
 
 	-- colorscheme
 	use { "EdenEast/nightfox.nvim", config = function()
-		require('nightfox').setup { options = { transparent = true } }
+		require('nightfox').setup {
+			options = {
+				transparent = true,
+				styles = {
+      					comments = "italic",
+      					keywords = "bold",
+    				}
+			}
+		}
 		vim.cmd("colorscheme carbonfox")
 		vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'LineNr' })
 		vim.fn.sign_define('DapBreakpoint', { text = 'BR', texthl = 'Error', numhl = 'Error' })
