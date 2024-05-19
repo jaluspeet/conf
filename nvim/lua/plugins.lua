@@ -103,11 +103,6 @@ require('packer').startup(function(use)
 		require("nvim-dap-virtual-text").setup()
 	end }
 
-	-- project
-	use { "ahmedkhalf/project.nvim", config = function()
-		require("project_nvim").setup()
-	end }
-
 	-- treesitter
 	use { 'nvim-treesitter/nvim-treesitter', config = function()
 		require('nvim-treesitter.configs').setup {
@@ -161,19 +156,6 @@ require('packer').startup(function(use)
 			close_on_exit = false,
 		}
 	end }
-
-	-- le rotelle
-       use { "folke/which-key.nvim", config = function()
-               vim.o.timeout = true
-               vim.o.timeoutlen = 300
-               require("which-key").setup {
-                       icons = {
-                               breadcrumb = "/",
-                               separator = "-",
-                               group = "+",
-                       },
-               }
-       end }
 
 	-- colorscheme
 	use { "EdenEast/nightfox.nvim", config = function()
