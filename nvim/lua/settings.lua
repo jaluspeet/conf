@@ -18,7 +18,6 @@ vim.g.filetype = "on"
 vim.o.splitright = true
 vim.o.splitbelow = true
 vim.o.title = true
-vim.o.autochdir = true
 vim.opt.laststatus = 3
 vim.o.pumheight = 10
 vim.opt.showmode = false
