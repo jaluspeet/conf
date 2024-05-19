@@ -1,0 +1,12 @@
+[global]
+	font = Sans 11
+[urgency_low]
+	background = "#161616"  
+	foreground = "#ffffff" 
+[urgency_normal]
+	background = "#808080"  
+	foreground = "#ffffff" 
+[urgency_critical]
+	background = "#FF0000"
+	foreground = "#ffffff" 
+
