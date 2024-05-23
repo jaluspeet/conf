@@ -3,15 +3,12 @@ syntax enable
 filetype on
 filetype plugin on
 filetype indent on
+colo wildcharm
 set autoindent
 set hlsearch
 set number
 set relativenumber
 set noswapfile
-set undodir=~/.vim/undo
-set undofile
-set undolevels=1000
-set undoreload=10000
 set ignorecase
 set smartcase
 set nowrap
@@ -69,15 +66,10 @@ endfunction
 " KEYBINDS
 let g:mapleader = ' '
 
-nnoremap <C-x> :term 
 nnoremap <silent><C-b> :Lex<CR><CR>
 nnoremap <silent><C-s> :call <SID>ToggleTerminal()<CR>
 tnoremap <silent><C-s> <C-w>N:call <SID>ToggleTerminal()<CR>
-
-nnoremap <silent><leader>q :q!<CR>
-nnoremap <silent><leader>, :bprevious<CR>
-nnoremap <silent><leader>; :bnext<CR>
-nnoremap <leader>. @:<CR>
+nnoremap <silent><C-q> :q!<CR>
 
 nnoremap <silent><C-h> <C-W><C-H>
 nnoremap <silent><C-j> <C-W><C-J>
