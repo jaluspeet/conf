@@ -9,10 +9,6 @@ source $ZSH/oh-my-zsh.sh
 export VISUAL='nvim'
 export EDITOR='nvim'
 
-# path
-export PATH=$PATH:$HOME/.local/bin
-export PATH=$PATH:$HOME/.cargo/bin
-
 # alias
 alias vim='nvim'
 alias vimdiff='nvimdiff'
