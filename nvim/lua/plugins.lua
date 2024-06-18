@@ -63,7 +63,6 @@ require('packer').startup(function(use)
 					['<Tab>'] = require('lsp-zero').cmp_action().luasnip_supertab(),
 					['<S-Tab>'] = require('lsp-zero').cmp_action().luasnip_shift_supertab(),
 					['<CR>'] = require('cmp').mapping.confirm({ select = true }),
-					['<C-Space>'] = require('cmp').mapping.complete(),
 					['<S-Up>'] = require('cmp').mapping.scroll_docs(-4),
 					['<S-Down>'] = require('cmp').mapping.scroll_docs(4),
 				},
@@ -76,32 +75,6 @@ require('packer').startup(function(use)
 
 			require('lsp-zero').preset().setup()
 		end }
-
-	-- DAP (debug adapter protocol)
-	use { 'mfussenegger/nvim-dap', config = function()
-		require('dap').defaults.fallback.terminal_win_cmd = 'vnew'
-	end }
-	use { 'rcarriga/cmp-dap', config = function()
-		require("cmp").setup({
-			enabled = function()
-				return vim.api.nvim_buf_get_option(0, "buftype") ~= "prompt"
-				    or require("cmp_dap").is_dap_buffer()
-			end
-		})
-		require("cmp").setup.filetype({ "dap-repl" }, {
-			sources = {
-				{ name = "dap" },
-			},
-		})
-	end }
-	use { 'jay-babu/mason-nvim-dap.nvim', config = function()
-		require("mason-nvim-dap").setup {
-			handlers = {},
-		}
-	end }
-	use { 'theHamsta/nvim-dap-virtual-text', config = function()
-		require("nvim-dap-virtual-text").setup()
-	end }
 
 	-- treesitter
 	use { 'nvim-treesitter/nvim-treesitter', config = function()
@@ -157,6 +130,9 @@ require('packer').startup(function(use)
 		}
 	end }
 
+	-- indentation
+	use 'Darazaki/indent-o-matic'
+
 	-- colorscheme
 	use { "EdenEast/nightfox.nvim", config = function()
 		require('nightfox').setup {
@@ -170,7 +146,6 @@ require('packer').startup(function(use)
 		}
 		vim.cmd("colorscheme carbonfox")
 		vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'LineNr' })
-		vim.fn.sign_define('DapBreakpoint', { text = 'BR', texthl = 'Error', numhl = 'Error' })
 	end }
 
 	-- statusline
@@ -184,6 +159,9 @@ require('packer').startup(function(use)
 			},
 		}
 	end }
+
+	-- copilot
+	use 'github/copilot.vim'
 
 	-- plugins over this
 	if packer_bootstrap then

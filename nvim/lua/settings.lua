@@ -21,3 +21,5 @@ vim.o.title = true
 vim.opt.laststatus = 3
 vim.o.pumheight = 10
 vim.opt.showmode = false
+vim.g.copilot_no_tab_map = true
+vim.g.copilot_assume_mapped = true

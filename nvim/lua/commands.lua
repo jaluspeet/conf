@@ -1,5 +1,4 @@
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber | startinsert' })
-vim.api.nvim_create_autocmd('FileType', { pattern = 'dap-repl', command = "setlocal nonumber norelativenumber" })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = "setlocal nonumber norelativenumber" })
 
 function Run(...)
