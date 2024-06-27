@@ -13,6 +13,7 @@ vim.keymap.set({ 'n', 'v' }, '<leader>s', require('telescope.builtin').live_grep
 vim.keymap.set({ 'n', 'v' }, '<leader>c', require('telescope.builtin').commands, { desc = "Commands" })
 vim.keymap.set({ 'n', 'v' }, '<leader>b', require('telescope.builtin').buffers, { desc = "Buffers" })
 vim.keymap.set({ 'n', 'v' }, '<leader>g', require('telescope.builtin').git_status, { desc = "Git" })
+vim.keymap.set({ 'n', 'v' }, '<leader>o', require('telescope.builtin').lsp_document_symbols, { desc = "Outline" })
 
 -- lsp
 vim.keymap.set({ 'n', 'v' }, '<leader>e', vim.diagnostic.setqflist, { desc = "Errors" })
