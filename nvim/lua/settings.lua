@@ -23,3 +23,11 @@ vim.o.pumheight = 10
 vim.opt.showmode = false
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
+vim.o.cursorline = true
+
+vim.cmd('colorscheme lunaperche')
+vim.api.nvim_set_hl(0, 'CopilotSuggestion', { link = 'Folded' })
+vim.api.nvim_set_hl(0, 'Normal', { ctermbg='none' })
+vim.api.nvim_set_hl(0, 'StatusLine', { link='NormalFloat' })
+vim.api.nvim_set_hl(0, 'WinSeparator', { link='LineNr' })
+vim.fn.sign_define('DapBreakpoint', { text = 'BR', texthl = 'Error', numhl = 'Error' })

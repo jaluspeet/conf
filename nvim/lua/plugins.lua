@@ -133,32 +133,9 @@ require('packer').startup(function(use)
 	-- indentation
 	use 'Darazaki/indent-o-matic'
 
-	-- colorscheme
-	use { "EdenEast/nightfox.nvim", config = function()
-		require('nightfox').setup {
-			options = {
-				transparent = true,
-				styles = {
-      					comments = "italic",
-      					keywords = "bold",
-    				}
-			}
-		}
-		vim.cmd("colorscheme carbonfox")
-		vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'LineNr' })
-		vim.fn.sign_define('DapBreakpoint', { text = 'BR', texthl = 'Error', numhl = 'Error' })
-	end }
-
 	-- statusline
-	use { 'nvim-lualine/lualine.nvim', config = function()
-		require('lualine').setup {
-			options = {
-				theme = 'modus-vivendi',
-				icons_enabled = false,
-				component_separators = { left = '', right = '' },
-				section_separators = { left = '', right = '' },
-			},
-		}
+	use { 'eduardo-antunes/plainline', config = function()
+		require('plainline').setup()
 	end }
 
 	-- copilot
