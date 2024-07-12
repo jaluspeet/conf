@@ -32,3 +32,6 @@ vim.api.nvim_set_hl(0, 'FloatBorder', { link='NormalFloat' })
 vim.api.nvim_set_hl(0, 'StatusLine', { link='NormalFloat' })
 vim.api.nvim_set_hl(0, 'WinSeparator', { link='LineNr' })
 vim.fn.sign_define('DapBreakpoint', { text = 'BR', texthl = 'Error', numhl = 'Error' })
+
+vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber | startinsert' })
+vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = "setlocal nonumber norelativenumber" })
