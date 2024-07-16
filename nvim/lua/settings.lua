@@ -25,7 +25,6 @@ vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
 vim.o.cursorline = true
 
-vim.cmd('colorscheme lunaperche')
 vim.api.nvim_set_hl(0, 'CopilotSuggestion', { link = 'Folded' })
 vim.api.nvim_set_hl(0, 'Normal', { ctermbg='none' })
 vim.api.nvim_set_hl(0, 'FloatBorder', { link='NormalFloat' })
