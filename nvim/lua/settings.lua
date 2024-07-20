@@ -27,6 +27,11 @@ vim.o.cursorline = true
 
 vim.api.nvim_set_hl(0, 'CopilotSuggestion', { link = 'Folded' })
 vim.api.nvim_set_hl(0, 'Normal', { ctermbg='none' })
+vim.api.nvim_set_hl(0, 'DiagnosticError', { bg='NvimDarkRed', fg='NvimLightRed' })
+vim.api.nvim_set_hl(0, 'DiagnosticWarn', { bg='NvimDarkYellow', fg='NvimLightYellow' })
+vim.api.nvim_set_hl(0, 'DiagnosticInfo', { bg='NvimDarkCyan', fg='NvimLightCyan' })
+vim.api.nvim_set_hl(0, 'DiagnosticHint', { bg='NvimDarkBlue', fg='NvimLightBlue' })
+vim.api.nvim_set_hl(0, 'DiagnosticOk', { bg='NvimDarkGreen', fg='NvimLightGreen' })
 vim.fn.sign_define('DapBreakpoint', { text = 'BR', texthl = 'Error', numhl = 'Error' })
 
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber | startinsert' })
