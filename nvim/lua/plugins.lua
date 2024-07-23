@@ -121,6 +121,10 @@ require('packer').startup(function(use)
 		}
 	end }
 
+	use { "sopa0/telescope-makefile", config = function()
+		require'telescope'.load_extension('make')
+	end }
+
 	-- terminal
 	use { "akinsho/toggleterm.nvim", tag = '*', config = function()
 		require("toggleterm").setup {

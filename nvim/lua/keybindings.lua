@@ -4,6 +4,7 @@ vim.g.mapleader = ' '
 vim.keymap.set({ 'n', 'v' }, '<C-n>', vim.cmd.noh, { desc = "Clear" })
 vim.keymap.set({ 'n', 'i', 'v', 't' }, '<C-b>', vim.cmd.Lex, { desc = "Sidebar" })
 vim.keymap.set({ 'n', 'i', 'v', 't' }, '<C-s>', require('toggleterm').toggle, { desc = "Terminal" })
+vim.keymap.set({ 'n', 'i', 'v', 't' }, '<C-x>', ":Telescope make<CR>", { desc = "Make" })
 
 -- search
 vim.keymap.set({ 'n', 'v' }, '<leader><leader>', require('telescope.builtin').builtin, { desc = "Search" })
