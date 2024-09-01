@@ -23,10 +23,10 @@ vim.o.pumheight = 10
 vim.opt.showmode = false
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
-vim.o.cursorline = true
+vim.cmd('colo habamax')
 
 vim.api.nvim_set_hl(0, 'CopilotSuggestion', { link = 'Folded' })
-vim.api.nvim_set_hl(0, 'Normal', { ctermbg='none' })
+vim.api.nvim_set_hl(0, 'Normal', { bg='none' })
 vim.api.nvim_set_hl(0, 'DiagnosticError', { bg='NvimDarkRed', fg='NvimLightRed' })
 vim.api.nvim_set_hl(0, 'DiagnosticWarn', { bg='NvimDarkYellow', fg='NvimLightYellow' })
 vim.api.nvim_set_hl(0, 'DiagnosticInfo', { bg='NvimDarkCyan', fg='NvimLightCyan' })
