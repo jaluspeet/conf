@@ -26,6 +26,8 @@ vim.g.copilot_assume_mapped = true
 vim.cmd('colo habamax')
 
 vim.api.nvim_set_hl(0, 'CopilotSuggestion', { link = 'Folded' })
+vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'LineNr' })
+vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'LineNr' })
 vim.api.nvim_set_hl(0, 'Normal', { bg='none' })
 vim.api.nvim_set_hl(0, 'DiagnosticError', { bg='NvimDarkRed', fg='NvimLightRed' })
 vim.api.nvim_set_hl(0, 'DiagnosticWarn', { bg='NvimDarkYellow', fg='NvimLightYellow' })
