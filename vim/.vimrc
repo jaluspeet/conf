@@ -110,8 +110,11 @@ endif
 
 call plug#begin()
 	Plug 'tpope/vim-sensible'
+	Plug 'tpope/vim-commentary'
 	Plug 'prabirshrestha/vim-lsp'
 	Plug 'mattn/vim-lsp-settings'
+	Plug 'prabirshrestha/asyncomplete.vim'
+	Plug 'prabirshrestha/asyncomplete-lsp.vim'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 call plug#end()
@@ -125,6 +128,8 @@ nnoremap <silent><C-s> :call <SID>ToggleTerminal()<CR>
 tnoremap <silent><C-s> <C-w>N:call <SID>ToggleTerminal()<CR>
 nnoremap <silent><C-q> :q!<CR>
 nnoremap <silent><C-n> :noh<CR>
+inoremap <silent> <expr> <C-Space>isible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 
 nnoremap <silent><leader>f :Files!<CR>
 nnoremap <silent><leader>s :Rg!<CR>
