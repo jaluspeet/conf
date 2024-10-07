@@ -25,7 +25,7 @@ vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
 vim.o.termguicolors = true
 vim.o.cursorline = true
-vim.cmd([[colo wildcharm]])
+vim.cmd([[colo lunaperche]])
 
 vim.api.nvim_set_hl(0, 'CopilotSuggestion', { link = 'Folded' })
 vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'LineNr' })
