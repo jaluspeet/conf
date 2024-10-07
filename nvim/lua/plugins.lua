@@ -134,9 +134,6 @@ require('packer').startup(function(use)
 		}
 	end }
 
-	-- indentation
-	use 'Darazaki/indent-o-matic'
-
 	-- statusline
 	use { 'eduardo-antunes/plainline', config = function()
 		require('plainline').setup()

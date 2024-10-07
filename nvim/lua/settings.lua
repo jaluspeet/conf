@@ -23,17 +23,14 @@ vim.o.pumheight = 10
 vim.opt.showmode = false
 vim.g.copilot_no_tab_map = true
 vim.g.copilot_assume_mapped = true
-vim.cmd('colo habamax')
+vim.o.termguicolors = true
+vim.o.cursorline = true
+vim.cmd([[colo wildcharm]])
 
 vim.api.nvim_set_hl(0, 'CopilotSuggestion', { link = 'Folded' })
 vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'LineNr' })
 vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'LineNr' })
 vim.api.nvim_set_hl(0, 'Normal', { bg='none' })
-vim.api.nvim_set_hl(0, 'DiagnosticError', { bg='NvimDarkRed', fg='NvimLightRed' })
-vim.api.nvim_set_hl(0, 'DiagnosticWarn', { bg='NvimDarkYellow', fg='NvimLightYellow' })
-vim.api.nvim_set_hl(0, 'DiagnosticInfo', { bg='NvimDarkCyan', fg='NvimLightCyan' })
-vim.api.nvim_set_hl(0, 'DiagnosticHint', { bg='NvimDarkBlue', fg='NvimLightBlue' })
-vim.api.nvim_set_hl(0, 'DiagnosticOk', { bg='NvimDarkGreen', fg='NvimLightGreen' })
 vim.fn.sign_define('DapBreakpoint', { text = 'BR', texthl = 'Error', numhl = 'Error' })
 
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber | startinsert' })

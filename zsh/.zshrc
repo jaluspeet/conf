@@ -8,6 +8,7 @@ source $ZSH/oh-my-zsh.sh
 # variables
 export VISUAL='nvim'
 export EDITOR='nvim'
+export FZF_DEFAULT_OPTS='--color 16'
 
 # alias
 alias vim='nvim'
