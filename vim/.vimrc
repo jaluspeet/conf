@@ -91,7 +91,8 @@ function! FzfMake()
     let targets = systemlist("awk -F: '/^[^\\t#].*:/ {print $1}' Makefile")
     call fzf#run({
     \ 'source': targets,
-    \ 'sink*': { selected -> execute("term make " . selected[0]) }
+    \ 'sink*': { selected -> execute("term make " . selected[0]) },
+    \ 'options': '--preview "cat Makefile"'
     \ })
 endfunction
 
