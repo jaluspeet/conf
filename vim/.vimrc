@@ -22,7 +22,6 @@ set wildmenu
 set wildmode=longest:full,full
 set wildoptions=pum
 set clipboard+=unnamed
-set paste
 set pumheight=15
 set laststatus=2
 set fillchars=eob:\ 
@@ -42,25 +41,10 @@ set statusline+=%*%4v\ %*
 set statusline+=%*0x%04B\ %*
 let g:lsp_use_native_client = 1
 let g:lsp_semantic_enabled = 1
-let g:lsp_format_sync_timeout = 1000
 let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_virtual_text_enabled = 1
 let g:lsp_diagnostics_virtual_text_align = 'right'
 let g:lsp_diagnostics_highlights_enabled = 1
-let g:fzf_colors =
-   \ { 'fg':      ['fg', 'Normal'],
-     \ 'bg':      ['bg', 'Normal'],
-     \ 'hl':      ['fg', 'MoreMsg'],
-     \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-     \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-     \ 'hl+':     ['fg', 'Statement'],
-     \ 'info':    ['fg', 'PreProc'],
-     \ 'border':  ['fg', 'Ignore'],
-     \ 'prompt':  ['fg', 'Conditional'],
-     \ 'pointer': ['fg', 'Exception'],
-     \ 'marker':  ['fg', 'Keyword'],
-     \ 'spinner': ['fg', 'Label'],
-     \ 'header':  ['fg', 'Comment'] }
 
 " AUTOCMD
 autocmd TerminalOpen * setlocal nonumber norelativenumber | startinsert
@@ -98,6 +82,19 @@ function! s:ToggleTerminal() abort
     endif
 endfunction
 
+function! FzfMake()
+    if !filereadable("Makefile")
+        echo "No Makefile found"
+        return
+    endif
+
+    let targets = systemlist("awk -F: '/^[^\\t#].*:/ {print $1}' Makefile")
+    call fzf#run({
+    \ 'source': targets,
+    \ 'sink*': { selected -> execute("term make " . selected[0]) }
+    \ })
+endfunction
+
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
     setlocal signcolumn=yes
@@ -129,12 +126,12 @@ endif
 call plug#begin()
 	Plug 'tpope/vim-sensible'
 	Plug 'tpope/vim-commentary'
-	Plug 'vimpostor/vim-lumen'
 	Plug 'prabirshrestha/vim-lsp'
 	Plug 'mattn/vim-lsp-settings'
 	Plug 'prabirshrestha/asyncomplete.vim'
 	Plug 'prabirshrestha/asyncomplete-lsp.vim'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+	Plug 'github/copilot.vim'
 	Plug 'junegunn/fzf.vim'
 call plug#end()
 
@@ -146,6 +143,7 @@ nnoremap <silent><C-s> :call <SID>ToggleTerminal()<CR>
 tnoremap <silent><C-s> <C-w>N:call <SID>ToggleTerminal()<CR>
 nnoremap <silent><C-q> :q!<CR>
 nnoremap <silent><C-n> :noh<CR>
+nnoremap <C-x> :call FzfMake()<CR>
 inoremap <expr><cr> pumvisible() ? asyncomplete#close_popup() : "\<cr>"
 nnoremap <silent><leader>f :Files!<CR>
 nnoremap <silent><leader>s :Rg!<CR>
