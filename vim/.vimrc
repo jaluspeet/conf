@@ -4,6 +4,7 @@ filetype on
 filetype plugin on
 filetype indent on
 colorscheme wildcharm
+set signcolumn=number
 set cursorline
 set autoindent
 set hlsearch
@@ -38,31 +39,52 @@ set statusline+=%*%m%*
 set statusline+=%*%=%5l%*
 set statusline+=%*/%L%*
 set statusline+=%*%4v\ %*
-set statusline+=%*0x%04B\ %*
 let g:lsp_use_native_client = 1
 let g:lsp_semantic_enabled = 1
 let g:lsp_diagnostics_enabled = 1
+let g:lsp_diagnostics_echo_cursor = 1
+let g:lsp_diagnostics_echo_delay = 0
+let g:lsp_diagnostics_highlights_enabled = 1
+let g:lsp_diagnostics_highlight_delay = 0
 let g:lsp_diagnostics_virtual_text_enabled = 1
 let g:lsp_diagnostics_virtual_text_align = 'right'
-let g:lsp_diagnostics_highlights_enabled = 1
+let g:vim_addon_qf_layout = {}
+let g:vim_addon_qf_layout.quickfix_formatters = [
+    \'vim_addon_qf_layout#DefaultFormatter',
+    \'vim_addon_qf_layout#FormatterNoFilename',
+    \'vim_addon_qf_layout#Reset',
+    \'NOP' ]
+
 
 " AUTOCMD
 autocmd TerminalOpen * setlocal nonumber norelativenumber | startinsert
-autocmd FileType qf setlocal nonumber norelativenumber 
+" autocmd FileType qf setlocal norelativenumber 
 
 augroup CustomHighlights
 	autocmd!
-	autocmd ColorScheme * highlight Normal guibg=NONE ctermbg=NONE
-	autocmd ColorScheme * highlight link CursorLineNr ModeMsg
-	autocmd ColorScheme * highlight LspErrorHighlight cterm=underline term=underline
-	autocmd ColorScheme * highlight LspWarningHighlight cterm=underline term=underline
-	autocmd ColorScheme * highlight LspInformationHighlight cterm=underline term=underline
-	autocmd ColorScheme * highlight LspHintHighlight cterm=underline term=underline
-	autocmd ColorScheme * highlight link LspErrorVirtualText Folded
-	autocmd ColorScheme * highlight link LspWarningVirtualText Folded
-	autocmd ColorScheme * highlight link LspInformationVirtualText Folded
-	autocmd ColorScheme * highlight link LspHintVirtualText Folded
+	autocmd ColorScheme * highlight Normal ctermbg=NONE
+	
+	autocmd ColorScheme * highlight link LspErrorLine CursorLine
+	autocmd ColorScheme * highlight link LspWarningLine CursorLine
+	autocmd ColorScheme * highlight link LspInformationLine CursorLine
+	autocmd ColorScheme * highlight link LspHintLine CursorLine
+	
+	autocmd ColorScheme * highlight LspErrorText ctermfg=Red
+	autocmd ColorScheme * highlight LspWarningText ctermfg=Yellow
+	autocmd ColorScheme * highlight LspInformationText ctermfg=Blue
+	autocmd ColorScheme * highlight LspHintText ctermfg=Green
+
+	autocmd ColorScheme * highlight LspErrorHighlight cterm=underline ctermfg=Red
+	autocmd ColorScheme * highlight LspWarningHiglight cterm=underline ctermfg=Yellow
+	autocmd ColorScheme * highlight LspInformationHighlight cterm=underline ctermfg=Blue
+	autocmd ColorScheme * highlight LspHintHighlight cterm=underline ctermfg=Green
+	
+	autocmd ColorScheme * highlight link LspErrorVirtualText NonText
+	autocmd ColorScheme * highlight link LspWarningVirtualText NonText
+	autocmd ColorScheme * highlight link LspInformationVirtualText NonText
+	autocmd ColorScheme * highlight link LspHintVirtualText NonText
 augroup END
+
 
 " FUNCTIONS
 let s:term_buf_nr = -1
@@ -98,7 +120,6 @@ endfunction
 
 function! s:on_lsp_buffer_enabled() abort
     setlocal omnifunc=lsp#complete
-    setlocal signcolumn=yes
     if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
     nmap <buffer> gd <plug>(lsp-definition)
     nmap <buffer> gr <plug>(lsp-references)
@@ -118,6 +139,7 @@ augroup lsp_install
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
+
 " PLUGINS
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
@@ -132,9 +154,12 @@ call plug#begin()
 	Plug 'prabirshrestha/asyncomplete.vim'
 	Plug 'prabirshrestha/asyncomplete-lsp.vim'
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-	Plug 'github/copilot.vim'
 	Plug 'junegunn/fzf.vim'
+	Plug 'github/copilot.vim'
+	Plug 'MarcWeber/vim-addon-qf-layout'
+	Plug 'romainl/vim-qf'
 call plug#end()
+
 
 " KEYBINDS
 let g:mapleader = ' '
