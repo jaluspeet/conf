@@ -21,16 +21,9 @@ vim.o.title = true
 vim.opt.laststatus = 3
 vim.o.pumheight = 10
 vim.opt.showmode = false
-vim.o.cursorline = true
 vim.o.fillchars='eob: '
 vim.cmd([[aunmenu PopUp.How-to\ disable\ mouse]])
 vim.cmd([[aunmenu PopUp.-1-]])
-
-vim.api.nvim_set_hl(0, 'CopilotSuggestion', { link = 'Folded' })
-vim.api.nvim_set_hl(0, 'WinSeparator', { link = 'LineNr' })
-vim.api.nvim_set_hl(0, 'FloatBorder', { link = 'LineNr' })
-vim.api.nvim_set_hl(0, 'Normal', { bg='none' })
-vim.fn.sign_define('DapBreakpoint', { text = 'BR', texthl = 'Error', numhl = 'Error' })
 
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber | startinsert' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = "setlocal norelativenumber" })

@@ -50,9 +50,7 @@ require('packer').startup(function(use)
 
 			vim.diagnostic.config {
 				underline = true,
-				virtual_text = {
-					virt_text_pos = 'right_align'
-				}
+				virtual_text = true
 			}
 
 			require('cmp').setup {
@@ -65,8 +63,9 @@ require('packer').startup(function(use)
 					['<Tab>'] = require('lsp-zero').cmp_action().luasnip_supertab(),
 					['<S-Tab>'] = require('lsp-zero').cmp_action().luasnip_shift_supertab(),
 					['<CR>'] = require('cmp').mapping.confirm({ select = true }),
-					['<S-Up>'] = require('cmp').mapping.scroll_docs(-4),
-					['<S-Down>'] = require('cmp').mapping.scroll_docs(4),
+					['<C-e>'] = require('cmp').mapping.abort(),
+					['<C-b>'] = require('cmp').mapping.scroll_docs(-4),
+					['<C-f>'] = require('cmp').mapping.scroll_docs(4),
 
 				},
 
@@ -150,6 +149,21 @@ require('packer').startup(function(use)
 		-- statusline
 		use { 'eduardo-antunes/plainline', config = function()
 			require('plainline').setup()
+		end }
+
+		-- colorscheme
+		use { 'Mofiqul/vscode.nvim', config = function()
+			require('vscode').setup {
+			    transparent = true,
+			    italic_comments = true,
+			    underline_links = true,
+			}
+			vim.cmd.colorscheme 'vscode'
+			vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { fg = 'Red', ctermfg='Red' })
+			vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { fg = 'LightBlue', ctermfg='LightBlue' })
+			vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { fg = 'LightBlue', ctermfg='LightBlue' })
+			vim.api.nvim_set_hl(0, 'DiagnosticUnderlineOk', { fg = 'Green', ctermfg='Green' })
+			vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { fg = 'Yellow', ctermfg='Yellow' })
 		end }
 
 		-- plugins over this

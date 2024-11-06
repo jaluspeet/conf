@@ -27,7 +27,6 @@ vim.keymap.set({ 'n', 'v' }, 'gd', require('telescope.builtin').lsp_definitions,
 vim.keymap.set({ 'n', 'v' }, 'gr', require('telescope.builtin').lsp_references, { desc = "References" })
 vim.keymap.set({ 'n', 'v' }, 'gs', vim.lsp.buf.signature_help, { desc = "Signature help" })
 vim.keymap.set({ 'n', 'v' }, 'gD', vim.lsp.buf.declaration, { desc = "Declaration" })
--- vim.keymap.set("i", "<C-Space>", 'copilot#Accept("<CR>")', { silent = true, expr = true, replace_keycodes = false, desc = "Copilot" })
 
 -- move
 vim.keymap.set({ 'n', 'i', 'v', 't' }, '<C-q>', vim.cmd.x, { desc = "Close" })
