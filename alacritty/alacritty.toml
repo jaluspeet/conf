@@ -1,3 +1,7 @@
+import = [
+    "~/.config/alacritty/themes/active.toml"
+]
+
 [colors]
 draw_bold_text_with_bright_colors = false
 
@@ -31,9 +35,10 @@ foreground = "0xffffff"
 
 [env]
 TERM = "xterm-256color"
+ALACRITTY = "true"
 
 [font]
-size = 14
+size = 13
 
 [[keyboard.bindings]]
 chars = "\u001BB"
