@@ -1,0 +1,35 @@
+[
+    // source control
+    {
+        "key": "cmd+shift+x",
+        "command": "-workbench.view.extensions",
+        "when": "viewContainer.workbench.view.extensions.enabled"
+    },
+    {
+        "key": "cmd+shift+x",
+        "command": "workbench.view.scm",
+        "when": "workbench.scm.active"
+    },
+
+    // outline
+    {
+        "key": "shift+cmd+a",
+        "command": "-editor.action.deleteLines",
+        "when": "textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "shift+cmd+a",
+        "command": "outline.focus"
+    },
+
+    // terminal
+    {
+        "key": "shift+cmd+c",
+        "command": "-workbench.action.terminal.openNativeConsole",
+        "when": "!terminalFocus"
+    },
+    {
+        "key": "shift+cmd+c",
+        "command": "workbench.action.terminal.toggleTerminal"
+    },
+]
