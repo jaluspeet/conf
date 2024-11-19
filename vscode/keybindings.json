@@ -22,14 +22,15 @@
         "command": "outline.focus"
     },
 
-    // terminal
+    // build task
     {
-        "key": "shift+cmd+c",
-        "command": "-workbench.action.terminal.openNativeConsole",
-        "when": "!terminalFocus"
+        "key": "shift+cmd+b",
+        "command": "workbench.action.tasks.runTask",
+        "args": "make: all"
     },
     {
-        "key": "shift+cmd+c",
-        "command": "workbench.action.terminal.toggleTerminal"
+        "key": "shift+cmd+b",
+        "command": "-workbench.action.tasks.build",
+        "when": "taskCommandsRegistered"
     },
 ]

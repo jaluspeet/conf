@@ -79,4 +79,7 @@
     "update.showReleaseNotes": false,
     "workbench.panel.showLabels": false,
     "accessibility.verbosity.panelChat": false,
+    "task.problemMatchers.neverPrompt": true,
+    "task.allowAutomaticTasks": "off",
+    "task.autoDetect": "off"
 }
