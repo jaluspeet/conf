@@ -31,11 +31,11 @@ require('packer').startup(function(use)
 			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
 			-- Autocompletion
-			{ 'hrsh7th/nvim-cmp' },                               -- Required
-			{ 'hrsh7th/cmp-nvim-lsp' },                           -- Required
-			{ 'hrsh7th/cmp-path' },                               -- Optional
-			{ 'hrsh7th/cmp-nvim-lsp-signature-help' },            -- Optional
-			{ "L3MON4D3/LuaSnip", run = "make install_jsregexp" } -- Optional
+			{ 'hrsh7th/nvim-cmp' },          -- Required
+			{ 'hrsh7th/cmp-nvim-lsp' },      -- Required
+			{ 'hrsh7th/cmp-path' },          -- Optional
+			{ 'hrsh7th/cmp-nvim-lsp-signature-help' }, -- Optional
+			{ "L3MON4D3/LuaSnip",                   run = "make install_jsregexp" } -- Optional
 		},
 
 		config = function()
@@ -146,6 +146,35 @@ require('packer').startup(function(use)
 	-- statusline
 	use { 'eduardo-antunes/plainline', config = function()
 		require('plainline').setup()
+	end }
+
+	-- better quickfix
+	use { 'stevearc/quicker.nvim', config = function()
+		require("quicker").setup {
+			type_icons = {
+				E = "E ",
+				W = "W ",
+				I = "I ",
+				N = "N ",
+				H = "H ",
+			},
+		}
+	end }
+
+	-- colorscheme
+	use { 'Mofiqul/vscode.nvim', config = function()
+		require('vscode').setup {
+			transparent = true,
+			italic_comments = true,
+			underline_links = true
+		}
+
+		vim.cmd.colorscheme 'vscode'
+		-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { fg = 'Red', ctermfg = 'Red' })
+		-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { fg = 'LightBlue', ctermfg = 'LightBlue' })
+		-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { fg = 'LightBlue', ctermfg = 'LightBlue' })
+		-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineOk', { fg = 'Green', ctermfg = 'Green' })
+		-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { fg = 'Yellow', ctermfg = 'Yellow' })
 	end }
 
 	-- plugins over this

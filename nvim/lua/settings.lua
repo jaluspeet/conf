@@ -26,15 +26,5 @@ vim.o.fillchars='eob: '
 vim.cmd([[aunmenu PopUp.How-to\ disable\ mouse]])
 vim.cmd([[aunmenu PopUp.-1-]])
 
-vim.cmd.colorscheme 'lunaperche'
-vim.api.nvim_set_hl(0, 'Normal', { bg = NONE, ctermbg = NONE })
-vim.api.nvim_set_hl(0, 'WinSeparator', { bg = NONE, ctermbg = NONE })
-vim.api.nvim_set_hl(0, 'Function', { link = 'Changed' })
-vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { fg = 'Red', ctermfg = 'Red' })
-vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { fg = 'LightBlue', ctermfg = 'LightBlue' })
-vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { fg = 'LightBlue', ctermfg = 'LightBlue' })
-vim.api.nvim_set_hl(0, 'DiagnosticUnderlineOk', { fg = 'Green', ctermfg = 'Green' })
-vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { fg = 'Yellow', ctermfg = 'Yellow' })
-
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = 'setlocal norelativenumber' })
