@@ -6,11 +6,14 @@ plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
 # variables
-export VISUAL='vim'
-export EDITOR='vim'
+export VISUAL='nvim'
+export EDITOR='nvim'
 export FZF_DEFAULT_OPTS='--color=bg+:235,spinner:39,hl:41,header:243,info:44,pointer:39,marker:39,prompt:39,hl+:39'
 
+
 # alias
+alias vim='nvim'
+alias vimdiff='nvim -d'
 alias lss='ls -lah'
 
 # functions / keybindings
