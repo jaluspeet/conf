@@ -52,20 +52,7 @@ let g:lsp_diagnostics_highlights_enabled = 1
 let g:lsp_diagnostics_highlight_delay = 0
 let g:lsp_diagnostics_virtual_text_enabled = 1
 let g:lsp_diagnostics_virtual_text_align = 'right'
-let g:fzf_colors =
-            \ { 'fg':    ['fg', 'Normal'],
-            \ 'bg':      ['bg', 'Normal'],
-            \ 'hl':      ['fg', 'Constant'],
-            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-            \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-            \ 'hl+':     ['fg', 'Statement'],
-            \ 'info':    ['fg', 'PreProc'],
-            \ 'border':  ['fg', 'Ignore'],
-            \ 'prompt':  ['fg', 'Conditional'],
-            \ 'pointer': ['fg', 'Exception'],
-            \ 'marker':  ['fg', 'Keyword'],
-            \ 'spinner': ['fg', 'Label'],
-            \ 'header':  ['fg', 'Comment'] }
+
 
 " FUNCTIONS
 function! s:on_lsp_buffer_enabled() abort
@@ -148,6 +135,7 @@ nnoremap <silent><leader>f :Files!<CR>
 nnoremap <silent><leader>s :Rg!<CR>
 nnoremap <silent><leader>c :Commands!<CR>
 nnoremap <silent><leader>b :Buffers!<CR>
+nnoremap <silent><leader>g :Commits!<CR>
 nnoremap <silent><leader>o :LspDocumentSymbol<CR>
 nnoremap <silent><leader>e :LspDocumentDiagnostics<CR>
 
