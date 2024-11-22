@@ -86,6 +86,7 @@ endif
 call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
+Plug 'romainl/vim-qf'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 Plug 'prabirshrestha/asyncomplete.vim'
@@ -97,9 +98,6 @@ call plug#end()
 
 
 " AUTOCMD
-autocmd TerminalOpen * setlocal nonumber norelativenumber
-autocmd FileType qf setlocal norelativenumber
-
 colorscheme paramount
 augroup CustomHighlights
 	autocmd!
@@ -131,11 +129,11 @@ augroup END
 let g:mapleader = ' '
 
 nnoremap <silent><leader>n :noh<CR>
-nnoremap <silent><leader>f :Files!<CR>
-nnoremap <silent><leader>s :Rg!<CR>
-nnoremap <silent><leader>c :Commands!<CR>
-nnoremap <silent><leader>b :Buffers!<CR>
-nnoremap <silent><leader>g :Commits!<CR>
+nnoremap <silent><leader>f :Files<CR>
+nnoremap <silent><leader>s :Rg<CR>
+nnoremap <silent><leader>c :Commands<CR>
+nnoremap <silent><leader>b :Buffers<CR>
+nnoremap <silent><leader>g :Commits<CR>
 nnoremap <silent><leader>o :LspDocumentSymbol<CR>
 nnoremap <silent><leader>e :LspDocumentDiagnostics<CR>
 
