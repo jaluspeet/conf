@@ -1,4 +1,7 @@
 "SETTINGS
+if $TERM_PROGRAM != "Apple_Terminal"
+  set termguicolors
+endif
 syntax enable
 filetype on
 filetype plugin on
@@ -11,6 +14,7 @@ set hlsearch
 set number
 set relativenumber
 set noswapfile
+set cursorline
 set ignorecase
 set smartcase
 set nowrap
@@ -48,36 +52,20 @@ let g:lsp_diagnostics_highlights_enabled = 1
 let g:lsp_diagnostics_highlight_delay = 0
 let g:lsp_diagnostics_virtual_text_enabled = 1
 let g:lsp_diagnostics_virtual_text_align = 'right'
-
-" AUTOCMD
-autocmd TerminalOpen * setlocal nonumber norelativenumber
-autocmd FileType qf setlocal norelativenumber
-
-augroup CustomHighlights
-	autocmd!
-	autocmd ColorScheme * highlight Normal ctermbg=NONE
-
-	autocmd ColorScheme * highlight link LspErrorLine CursorLine
-	autocmd ColorScheme * highlight link LspWarningLine CursorLine
-	autocmd ColorScheme * highlight link LspInformationLine CursorLine
-	autocmd ColorScheme * highlight link LspHintLine CursorLine
-
-	autocmd ColorScheme * highlight LspErrorText ctermbg=Red ctermfg=White
-	autocmd ColorScheme * highlight LspWarningText ctermbg=Yellow ctermfg=Black
-	autocmd ColorScheme * highlight LspInformationText ctermbg=Blue ctermfg=White
-	autocmd ColorScheme * highlight LspHintText ctermbg=Green ctermfg=White
-
-	autocmd ColorScheme * highlight LspErrorHighlight cterm=underline ctermfg=Red
-	autocmd ColorScheme * highlight LspWarningHiglight cterm=underline ctermfg=Yellow
-	autocmd ColorScheme * highlight LspInformationHighlight cterm=underline ctermfg=Blue
-	autocmd ColorScheme * highlight LspHintHighlight cterm=underline ctermfg=Green
-
-	autocmd ColorScheme * highlight link LspErrorVirtualText NonText
-	autocmd ColorScheme * highlight link LspWarningVirtualText NonText
-	autocmd ColorScheme * highlight link LspInformationVirtualText NonText
-	autocmd ColorScheme * highlight link LspHintVirtualText NonText
-augroup END
-
+let g:fzf_colors =
+            \ { 'fg':    ['fg', 'Normal'],
+            \ 'bg':      ['bg', 'Normal'],
+            \ 'hl':      ['fg', 'Constant'],
+            \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+            \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+            \ 'hl+':     ['fg', 'Statement'],
+            \ 'info':    ['fg', 'PreProc'],
+            \ 'border':  ['fg', 'Ignore'],
+            \ 'prompt':  ['fg', 'Conditional'],
+            \ 'pointer': ['fg', 'Exception'],
+            \ 'marker':  ['fg', 'Keyword'],
+            \ 'spinner': ['fg', 'Label'],
+            \ 'header':  ['fg', 'Comment'] }
 
 " FUNCTIONS
 function! s:on_lsp_buffer_enabled() abort
@@ -117,7 +105,39 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'owickstrom/vim-colors-paramount'
 call plug#end()
+
+
+" AUTOCMD
+autocmd TerminalOpen * setlocal nonumber norelativenumber
+autocmd FileType qf setlocal norelativenumber
+
+colorscheme paramount
+augroup CustomHighlights
+	autocmd!
+	autocmd ColorScheme * highlight Normal guibg=NONE ctermbg=NONE
+
+	autocmd ColorScheme * highlight link LspErrorLine CursorLine
+	autocmd ColorScheme * highlight link LspWarningLine CursorLine
+	autocmd ColorScheme * highlight link LspInformationLine CursorLine
+	autocmd ColorScheme * highlight link LspHintLine CursorLine
+
+	autocmd ColorScheme * highlight LspErrorText ctermbg=Red ctermfg=White
+	autocmd ColorScheme * highlight LspWarningText ctermbg=Yellow ctermfg=Black
+	autocmd ColorScheme * highlight LspInformationText ctermbg=Blue ctermfg=White
+	autocmd ColorScheme * highlight LspHintText ctermbg=Green ctermfg=White
+
+	autocmd ColorScheme * highlight LspErrorHighlight cterm=underline ctermfg=Red
+	autocmd ColorScheme * highlight LspWarningHiglight cterm=underline ctermfg=Yellow
+	autocmd ColorScheme * highlight LspInformationHighlight cterm=underline ctermfg=Blue
+	autocmd ColorScheme * highlight LspHintHighlight cterm=underline ctermfg=Green
+
+	autocmd ColorScheme * highlight link LspErrorVirtualText NonText
+	autocmd ColorScheme * highlight link LspWarningVirtualText NonText
+	autocmd ColorScheme * highlight link LspInformationVirtualText NonText
+	autocmd ColorScheme * highlight link LspHintVirtualText NonText
+augroup END
 
 
 " KEYBINDS

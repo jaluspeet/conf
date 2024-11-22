@@ -4,6 +4,6 @@
 [difftool]
 	prompt = true
 [diff]
-	tool = nvimdiff
+	tool = vimdiff
 [difftool "nvimdiff"]
-	cmd = "nvim -d \"$LOCAL\" \"$REMOTE\""
+	cmd = "vim -d \"$LOCAL\" \"$REMOTE\""
