@@ -46,7 +46,7 @@ let g:lsp_diagnostics_enabled = 1
 let g:lsp_diagnostics_highlights_enabled = 1
 let g:lsp_diagnostics_highlight_delay = 0
 let g:lsp_diagnostics_virtual_text_enabled = 0
-let g:lsp_diagnostics_float_cursor = 1
+let g:lsp_diagnostics_echo_cursor = 1
 
 
 " FUNCTIONS
@@ -115,9 +115,9 @@ augroup CustomHighlights
 	autocmd ColorScheme * highlight LspInformationHighlight cterm=underline term=underline ctermfg=Blue guifg=Blue
 	autocmd ColorScheme * highlight LspHintHighlight cterm=underline term=underline ctermfg=Green guifg=Green
 
-	autocmd ColorScheme * highlight link LspErrorVirtualText NonText
-	autocmd ColorScheme * highlight link LspWarningVirtualText NonText
-	autocmd ColorScheme * highlight link LspInformationVirtualText NonText
+	autocmd colorscheme * highlight link lsperrorvirtualtext nontext
+	autocmd colorscheme * highlight link lspwarningvirtualtext nontext
+	autocmd colorscheme * highlight link lspinformationvirtualtext nontext
 	autocmd ColorScheme * highlight link LspHintVirtualText NonText
 augroup END
 
@@ -130,16 +130,15 @@ nnoremap <silent><C-q> :q!<CR>
 tnoremap <silent><C-q> <C-w>N:q!<CR>
 nnoremap <silent><C-b> :Lexplore!<CR>
 tnoremap <silent><C-b> <C-w>N:Lexplore!<CR>
-nnoremap <silent><C-w> :term<CR>
 nnoremap <C-x> :AsyncRun<UP>
-nnoremap <C-a> :cprev<CR>
-nnoremap <C-s> :cnext<CR>
 nnoremap <silent><leader>n :noh<CR>
 nnoremap <silent><leader>f :Files!<CR>
 nnoremap <silent><leader>s :Rg!<CR>
 nnoremap <silent><leader>c :Commands!<CR>
 nnoremap <silent><leader>b :Buffers!<CR>
 nnoremap <silent><leader>g :Commits!<CR>
+nnoremap <silent><leader>z :cprev<CR>
+nnoremap <silent><leader>x :cnext<CR>
 
 inoremap <expr><Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
