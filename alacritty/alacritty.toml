@@ -3,31 +3,31 @@ draw_bold_text_with_bright_colors = false
 
 [colors.bright]
 black = "0x767676"
-red = "0xaf5f87"
-green = "0x87af87"
-yellow = "0xd7af5f"
-blue = "0x729fcf"
-magenta = "0xaf87d7"
-cyan = "0x34e2e2"
-white = "0xc6c6c6"
+blue = "0x1a8fff"
+cyan = "0x14ffff"
+green = "0xfffd00"
+magenta = "0xfd28ff"
+red = "0xf2201f"
+white = "0xffffff"
+yellow = "0xfffd00"
 
 [colors.cursor]
-cursor = "0xc6c6c6"
-text = "0x262626"
+cursor = "0x999999"
+text = "0x000000"
 
 [colors.normal]
-black = "0x262626"
-red = "0xac2c2c"
-green = "0x4e9a06"
-yellow = "0xc4a000"
-blue = "0x3465a4"
-magenta = "0x75507b"
-cyan = "0x389aad"
-white = "0x626262"
+black = "0x000000"
+blue = "0x0d73cc"
+cyan = "0x0dcdcd"
+green = "0x19cb00"
+magenta = "0xcb1ed1"
+red = "0xcc0403"
+white = "0xdddddd"
+yellow = "0xcecb00"
 
 [colors.primary]
-background = "0x262626"
-foreground = "0xc6c6c6"
+background = "0x161616"
+foreground = "0xffffff"
 
 [env]
 TERM = "xterm-256color"

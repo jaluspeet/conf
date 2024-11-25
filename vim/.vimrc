@@ -90,7 +90,6 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'skywind3000/asyncrun.vim'
-Plug 'axvr/photon.vim'
 call plug#end()
 
 
@@ -100,16 +99,28 @@ autocmd FileType qf setlocal nonumber norelativenumber
 
 
 " COLORS
-colorscheme photon
-highlight Normal guibg=NONE ctermbg=NONE
-highlight LspErrorText guifg=Red ctermfg=Red
-highlight LspWarningText guifg=Yellow ctermfg=Yellow
-highlight LspInformationText guifg=Blue ctermfg=Blue
-highlight LspHintText guifg=Green ctermfg=Green
-highlight LspErrorHighlight guifg=Red ctermfg=Red term=bold cterm=bold
-highlight LspWarningHighlight guifg=Yellow ctermfg=Yellow term=bold cterm=bold
-highlight LspInformationHighlight guifg=Blue ctermfg=Blue term=bold cterm=bold
-highlight LspHintHighlight guifg=Green ctermfg=Green term=bold cterm=bold
+colorscheme lunaperche
+augroup CustomHighlights
+	autocmd!
+	autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
+	autocmd ColorScheme * highlight link Function PreProc
+
+	autocmd ColorScheme * highlight LspErrorText ctermbg=Red guibg=Red ctermfg=White guifg=White
+	autocmd ColorScheme * highlight LspWarningText ctermbg=Yellow guibg=Yellow ctermfg=Black guifg=Black
+	autocmd ColorScheme * highlight LspInformationText ctermbg=Blue guibg=Blue ctermfg=White guifg=White
+	autocmd ColorScheme * highlight LspHintText ctermbg=Green guibg=Green ctermfg=White guifg=White
+
+	autocmd ColorScheme * highlight LspErrorHighlight cterm=underline term=underline ctermfg=Red guifg=Red
+	autocmd ColorScheme * highlight LspWarningHiglight cterm=underline term=underline ctermfg=Yellow guifg=Yellow
+	autocmd ColorScheme * highlight LspInformationHighlight cterm=underline term=underline ctermfg=Blue guifg=Blue
+	autocmd ColorScheme * highlight LspHintHighlight cterm=underline term=underline ctermfg=Green guifg=Green
+
+	autocmd ColorScheme * highlight link LspErrorVirtualText NonText
+	autocmd ColorScheme * highlight link LspWarningVirtualText NonText
+	autocmd ColorScheme * highlight link LspInformationVirtualText NonText
+	autocmd ColorScheme * highlight link LspHintVirtualText NonText
+augroup END
+
 
 
 " KEYBINDS
