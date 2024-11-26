@@ -2,7 +2,6 @@ export ZSH_COMPDUMP=$ZSH/cache/.zcompdump-$HOST
 export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="simple"
 plugins=(git)
-
 source $ZSH/oh-my-zsh.sh
 
 # variables
@@ -12,6 +11,7 @@ export FZF_DEFAULT_OPTS='--color=bg+:235,spinner:39,hl:41,header:243,info:44,poi
 
 # alias
 alias lss='ls -lah'
+alias gtt='lazygit'
 
 # functions / keybindings
 function Resume { fg; zle push-input; BUFFER=""; zle accept-line } 
