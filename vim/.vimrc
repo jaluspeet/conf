@@ -1,8 +1,9 @@
-"SETTINGS
 syntax enable
 filetype on
 filetype plugin on
 filetype indent on
+set updatetime=100
+set termwinsize=15x0
 set signcolumn=number
 set scrolloff=2
 set autoindent
@@ -20,6 +21,8 @@ set splitbelow
 set title
 set nocompatible
 set wildmenu
+set autowrite
+set autowriteall
 set wildmode=longest:full,full
 set wildoptions=pum
 set clipboard+=unnamed
@@ -29,8 +32,6 @@ set fillchars=eob:\
 set completeopt=menuone,noinsert,noselect,preview
 let g:netrw_banner = 0
 let g:netrw_winsize = 20
-let g:autowrite = 1
-let g:autowriteall = 1
 set statusline+=%*\ %n\ %*
 set statusline+=%*%{&ff}%*
 set statusline+=%*%y%*
@@ -39,7 +40,6 @@ set statusline+=%*%m%*
 set statusline+=%*%=%5l%*
 set statusline+=%*/%L%*
 set statusline+=%*%4v\ %*
-let g:asyncrun_open = 15
 let g:lsp_use_native_client = 1
 let g:lsp_semantic_enabled = 1
 let g:lsp_diagnostics_enabled = 1
@@ -67,7 +67,6 @@ function! s:on_lsp_buffer_enabled() abort
 	nmap <buffer> <leader>o <plug>(lsp-document-symbol)
 	nmap <buffer> <leader>e <plug>(lsp-document-diagnostics)
 endfunction
-
 augroup lsp_install
 	au!
 	autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
@@ -89,60 +88,56 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'skywind3000/asyncrun.vim'
 call plug#end()
 
 
 " AUTOCMD
 autocmd TerminalOpen * setlocal nonumber norelativenumber
-autocmd FileType qf setlocal nonumber norelativenumber
+autocmd FileType qf setlocal norelativenumber
+autocmd InsertLeave,TextChanged,TextChangedI * update
 
 
 " COLORS
 colorscheme lunaperche
-augroup CustomHighlights
-	autocmd!
-	autocmd ColorScheme * highlight Normal ctermbg=NONE guibg=NONE
-	autocmd ColorScheme * highlight link Function PreProc
-
-	autocmd ColorScheme * highlight LspErrorText ctermbg=Red guibg=Red ctermfg=White guifg=White
-	autocmd ColorScheme * highlight LspWarningText ctermbg=Yellow guibg=Yellow ctermfg=Black guifg=Black
-	autocmd ColorScheme * highlight LspInformationText ctermbg=Blue guibg=Blue ctermfg=White guifg=White
-	autocmd ColorScheme * highlight LspHintText ctermbg=Green guibg=Green ctermfg=White guifg=White
-
-	autocmd ColorScheme * highlight LspErrorHighlight cterm=underline term=underline ctermfg=Red guifg=Red
-	autocmd ColorScheme * highlight LspWarningHiglight cterm=underline term=underline ctermfg=Yellow guifg=Yellow
-	autocmd ColorScheme * highlight LspInformationHighlight cterm=underline term=underline ctermfg=Blue guifg=Blue
-	autocmd ColorScheme * highlight LspHintHighlight cterm=underline term=underline ctermfg=Green guifg=Green
-
-	autocmd colorscheme * highlight link lsperrorvirtualtext nontext
-	autocmd colorscheme * highlight link lspwarningvirtualtext nontext
-	autocmd colorscheme * highlight link lspinformationvirtualtext nontext
-	autocmd ColorScheme * highlight link LspHintVirtualText NonText
-augroup END
-
+set background=dark
+highlight Normal ctermbg=NONE guibg=NONE
+highlight link Function PreProc
+highlight LspErrorText ctermbg=Red guibg=Red ctermfg=White guifg=White
+highlight LspWarningText ctermbg=Yellow guibg=Yellow ctermfg=Black guifg=Black
+highlight LspInformationText ctermbg=Blue guibg=Blue ctermfg=White guifg=White
+highlight LspHintText ctermbg=Green guibg=Green ctermfg=White guifg=White
+highlight LspErrorHighlight cterm=underline term=underline ctermfg=Red guifg=Red
+highlight LspWarningHiglight cterm=underline term=underline ctermfg=Yellow guifg=Yellow
+highlight LspInformationHighlight cterm=underline term=underline ctermfg=Blue guifg=Blue
+highlight LspHintHighlight cterm=underline term=underline ctermfg=Green guifg=Green
+highlight link lsperrorvirtualtext nontext
+highlight link lspwarningvirtualtext nontext
+highlight link lspinformationvirtualtext nontext
+highlight link LspHintVirtualText NonText
 
 
 " KEYBINDS
 let g:mapleader = ' '
-
 nnoremap <silent><C-q> :q!<CR>
 tnoremap <silent><C-q> <C-w>N:q!<CR>
+nnoremap <silent><C-s> :w!<CR>
+tnoremap <silent><C-s> <C-w>N:w!<CR>
 nnoremap <silent><C-b> :Lexplore!<CR>
 tnoremap <silent><C-b> <C-w>N:Lexplore!<CR>
-nnoremap <C-x> :AsyncRun<UP>
+nnoremap <C-x> <CR>:term<UP>
+tnoremap <C-x> <C-w>N:term<UP>
+
 nnoremap <silent><leader>n :noh<CR>
 nnoremap <silent><leader>f :Files!<CR>
 nnoremap <silent><leader>s :Rg!<CR>
 nnoremap <silent><leader>c :Commands!<CR>
 nnoremap <silent><leader>b :Buffers!<CR>
 nnoremap <silent><leader>g :Commits!<CR>
-nnoremap <silent><leader>z :cprev<CR>
-nnoremap <silent><leader>x :cnext<CR>
 
 inoremap <expr><Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <expr><cr>    pumvisible() ? asyncomplete#close_popup() : "\<cr>"
+
 nnoremap <silent><C-h> <C-W><C-H>
 nnoremap <silent><C-j> <C-W><C-J>
 nnoremap <silent><C-k> <C-W><C-K>
