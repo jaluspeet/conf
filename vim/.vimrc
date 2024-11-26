@@ -107,7 +107,7 @@ highlight LspWarningText ctermbg=Yellow guibg=Yellow ctermfg=Black guifg=Black
 highlight LspInformationText ctermbg=Blue guibg=Blue ctermfg=White guifg=White
 highlight LspHintText ctermbg=Green guibg=Green ctermfg=White guifg=White
 highlight LspErrorHighlight cterm=underline term=underline ctermfg=Red guifg=Red
-highlight LspWarningHiglight cterm=underline term=underline ctermfg=Yellow guifg=Yellow
+highlight LspWarningHighlight cterm=underline term=underline ctermfg=Yellow guifg=Yellow
 highlight LspInformationHighlight cterm=underline term=underline ctermfg=Blue guifg=Blue
 highlight LspHintHighlight cterm=underline term=underline ctermfg=Green guifg=Green
 highlight link lsperrorvirtualtext nontext
