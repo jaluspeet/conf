@@ -1,18 +1,12 @@
 # SETTINGS
 set $mod Mod4
-font                                                   pango:Terminus 9
+font                                                   Terminus 9
 exec --no-startup-id                                   xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id                                   feh --bg-fill ~/Pictures/background.jpg
 exec --no-startup-id                                   setxkbmap -option compose:ralt
 workspace_layout                                       default
 title_align                                            left
 floating_modifier                                      $mod
-
-# COLORS                                               border	        bground	        text	        indic.          child_border
-client.focused                                         #000000          #000000         #ffffff         #000000         #000000
-client.unfocused                                       #000000	        #000000	        #666666	        #000000         #000000
-client.focused_inactive                                #000000	        #000000	        #666666	        #000000         #000000
-client.urgent                                          #000000	        #000000	        #ff0000	        #000000         #000000
 
 # AUTOSTART 
 exec --no-startup-id                                   /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
@@ -152,17 +146,4 @@ bar {
         # status_command while date +'%d/%m/%y %H:%M'; do sleep 10; done
         status_command                                 i3status
         separator_symbol                               " | "
-        position                                       bottom
-        colors {
-                # class                                color
-                separator                              #ffffff
-                background                             #000000
-                statusline                             #ffffff
-
-                # class                                border           bg		txt
-                focused_workspace                      #000000	   	#000000		#ffffff
-                active_workspace                       #000000     	#000000		#888888
-                inactive_workspace                     #000000   	#000000		#666666
-                urgent_workspace                       #000000	    	#000000		#ff0000
-        }
 }
