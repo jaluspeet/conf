@@ -137,7 +137,7 @@ bindsym XF86AudioPlay exec --no-startup-id             playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id             playerctl next
 bindsym XF86AudioPrev exec --no-startup-id             playerctl previous
 
-bindsym Print exec --no-startup-id                     scrot ~/Pictures/%Y-%m-%d-%T.png && notify-send "Screenshot saved to ~/Pictures"
+bindsym Print exec --no-startup-id                     scrot ~/Pictures/Screenshots/%Y-%m-%d-%T.png && notify-send "Screenshot saved to ~/Pictures/Screenshots"
 bindsym --release $mod+Print exec --no-startup-id      scrot -s - | xclip -selection clipboard -target image/png
 bindsym $mod+z exec --no-startup-id                    boomer
 
