@@ -88,6 +88,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+Plug 'github/copilot.vim'
 call plug#end()
 
 
@@ -120,12 +121,10 @@ highlight link LspHintVirtualText NonText
 let g:mapleader = ' '
 nnoremap <silent><C-q> :q!<CR>
 tnoremap <silent><C-q> <C-w>N:q!<CR>
-nnoremap <silent><C-s> :w!<CR>
-tnoremap <silent><C-s> <C-w>N:w!<CR>
 nnoremap <silent><C-b> :Lexplore!<CR>
 tnoremap <silent><C-b> <C-w>N:Lexplore!<CR>
-nnoremap <C-x> <CR>:term<UP>
-tnoremap <C-x> <C-w>N:term<UP>
+nnoremap <silent><C-s> :w!<CR>
+nnoremap <C-x> :term<UP>
 
 nnoremap <silent><leader>n :noh<CR>
 nnoremap <silent><leader>f :Files!<CR>
