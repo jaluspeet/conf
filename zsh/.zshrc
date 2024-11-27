@@ -12,6 +12,7 @@ export FZF_DEFAULT_OPTS='--color=bg+:235,spinner:39,hl:41,header:243,info:44,poi
 # alias
 alias lss='ls -lah'
 alias gtt='lazygit'
+alias cdd='cd $(fd --type directory | fzf)'
 
 # functions / keybindings
 function Resume { fg; zle push-input; BUFFER=""; zle accept-line } 
