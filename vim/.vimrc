@@ -25,7 +25,7 @@ set autowrite
 set autowriteall
 set wildmode=longest:full,full
 set wildoptions=pum
-set clipboard+=unnamed
+set clipboard=unnamedplus,unnamed
 set pumheight=15
 set laststatus=2
 set fillchars=eob:\ 
