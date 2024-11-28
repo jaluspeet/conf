@@ -23,9 +23,11 @@ vim.opt.laststatus = 3
 vim.o.pumheight = 10
 vim.opt.showmode = false
 vim.o.cmdheight = 0
+vim.o.signcolumn = 'number'
 vim.o.fillchars='eob: '
 vim.cmd([[aunmenu PopUp.How-to\ disable\ mouse]])
 vim.cmd([[aunmenu PopUp.-1-]])
 
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = 'setlocal norelativenumber' })
+vim.api.nvim_create_autocmd('InsertLeave', { command = 'silent write' })

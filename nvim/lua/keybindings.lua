@@ -28,7 +28,6 @@ vim.keymap.set({ 'n', 'v' }, 'gs', vim.lsp.buf.signature_help, { desc = "Signatu
 vim.keymap.set({ 'n', 'v' }, 'gD', vim.lsp.buf.declaration, { desc = "Declaration" })
 
 -- move
-vim.keymap.set({ 'n', 'i', 'v', 't' }, '<C-q>', vim.cmd.x, { desc = "Close" })
 vim.keymap.set({ 'n', 'i', 'v', 't' }, '<C-Tab>', vim.cmd.tabnext, { desc = "Next tab" })
 vim.keymap.set({ 'n', 'i', 'v', 't' }, '<C-S-Tab>', vim.cmd.tabprevious, { desc = "Prev tab" })
 vim.keymap.set({ 'n', 'i', 'v', 't' }, '<C-t>', vim.cmd.tabnew, { desc = "New tab" })

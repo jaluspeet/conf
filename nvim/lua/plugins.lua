@@ -50,7 +50,7 @@ require('packer').startup(function(use)
 
 			vim.diagnostic.config {
 				underline = true,
-				virtual_text = false
+				virtual_text = true
 			}
 
 			require('cmp').setup {
