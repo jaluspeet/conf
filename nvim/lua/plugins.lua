@@ -177,22 +177,49 @@ require('packer').startup(function(use)
 	end }
 
 	-- debug
-	use { 'mfussenegger/nvim-dap', config = function()
-		require('dap').listeners.before.attach.dapui_config = function()
-			require('dap.ui.widgets').sidebar(require('dap.ui.widgets').scopes).open()
-		end
-		require('dap').listeners.before.launch.dapui_config = function()
-			require('dap.ui.widgets').sidebar(require('dap.ui.widgets').scopes).open()
-		end
-	end }
+	use { 'mfussenegger/nvim-dap' }
 	use { 'jay-babu/mason-nvim-dap.nvim', config = function()
 		require("mason-nvim-dap").setup {
 			handlers = {}
 		}
 	end }
 	use { 'theHamsta/nvim-dap-virtual-text', config = function()
-		require("nvim-dap-virtual-text").setup()
+		require("nvim-dap-virtual-text").setup {
+			commented = true
+		}
 	end }
+	use { "rcarriga/nvim-dap-ui", requires = { "nvim-neotest/nvim-nio" }, config = function()
+		require("dapui").setup {
+			icons = { expanded = "🞃", collapsed = "🞂", current_frame = "→" },
+			controls = {
+				icons = {
+					pause = "PAUSE",
+					play = "RUN",
+					step_into = "INTO",
+					step_over = "OVER",
+					step_out = "OUT",
+					step_back = "BACK",
+					run_last = "LAST",
+					terminate = "KILL",
+					disconnect = "EXIT"
+				}
+			}
+		}
+		local dap, dapui = require("dap"), require("dapui")
+		dap.listeners.before.attach.dapui_config = function()
+			dapui.open()
+		end
+		dap.listeners.before.launch.dapui_config = function()
+			dapui.open()
+		end
+		dap.listeners.before.event_terminated.dapui_config = function()
+			dapui.close()
+		end
+		dap.listeners.before.event_exited.dapui_config = function()
+			dapui.close()
+		end
+	end }
+
 
 	-- plugins over this
 	if packer_bootstrap then
