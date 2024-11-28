@@ -42,15 +42,15 @@ require('packer').startup(function(use)
 			require('lsp-zero').preset().nvim_workspace()
 			require('lsp-zero').preset().ensure_installed { 'lua_ls' }
 			require('lsp-zero').preset().set_sign_icons {
-				error = 'x',
-				warn = '!',
-				hint = '~',
-				info = '?'
+				error = 'E',
+				warn = 'W',
+				hint = 'H',
+				info = 'I',
 			}
 
 			vim.diagnostic.config {
 				underline = true,
-				virtual_text = true
+				virtual_text = false
 			}
 
 			require('cmp').setup {
@@ -168,13 +168,7 @@ require('packer').startup(function(use)
 			italic_comments = true,
 			underline_links = true
 		}
-
 		vim.cmd.colorscheme 'vscode'
-		-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { fg = 'Red', ctermfg = 'Red' })
-		-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { fg = 'LightBlue', ctermfg = 'LightBlue' })
-		-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { fg = 'LightBlue', ctermfg = 'LightBlue' })
-		-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineOk', { fg = 'Green', ctermfg = 'Green' })
-		-- vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { fg = 'Yellow', ctermfg = 'Yellow' })
 	end }
 
 	-- plugins over this
