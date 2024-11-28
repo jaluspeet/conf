@@ -31,10 +31,10 @@ require('packer').startup(function(use)
 			{ 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
 			-- Autocompletion
-			{ 'hrsh7th/nvim-cmp' },          -- Required
-			{ 'hrsh7th/cmp-nvim-lsp' },      -- Required
-			{ 'hrsh7th/cmp-path' },          -- Optional
-			{ 'hrsh7th/cmp-nvim-lsp-signature-help' }, -- Optional
+			{ 'hrsh7th/nvim-cmp' },                            -- Required
+			{ 'hrsh7th/cmp-nvim-lsp' },                        -- Required
+			{ 'hrsh7th/cmp-path' },                            -- Optional
+			{ 'hrsh7th/cmp-nvim-lsp-signature-help' },         -- Optional
 			{ "L3MON4D3/LuaSnip",                   run = "make install_jsregexp" } -- Optional
 		},
 
@@ -169,6 +169,29 @@ require('packer').startup(function(use)
 			underline_links = true
 		}
 		vim.cmd.colorscheme 'vscode'
+	end }
+
+	-- autosave
+	use { 'Pocco81/auto-save.nvim', config = function()
+		require("auto-save").setup()
+	end }
+
+	-- debug
+	use { 'mfussenegger/nvim-dap', config = function()
+		require('dap').listeners.before.attach.dapui_config = function()
+			require('dap.ui.widgets').sidebar(require('dap.ui.widgets').scopes).open()
+		end
+		require('dap').listeners.before.launch.dapui_config = function()
+			require('dap.ui.widgets').sidebar(require('dap.ui.widgets').scopes).open()
+		end
+	end }
+	use { 'jay-babu/mason-nvim-dap.nvim', config = function()
+		require("mason-nvim-dap").setup {
+			handlers = {}
+		}
+	end }
+	use { 'theHamsta/nvim-dap-virtual-text', config = function()
+		require("nvim-dap-virtual-text").setup()
 	end }
 
 	-- plugins over this

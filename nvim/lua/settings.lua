@@ -30,4 +30,5 @@ vim.cmd([[aunmenu PopUp.-1-]])
 
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = 'setlocal norelativenumber' })
-vim.api.nvim_create_autocmd('InsertLeave', { command = 'silent write' })
+vim.api.nvim_create_autocmd('FileType', { pattern = 'dap-repl', command = 'setlocal nonumber norelativenumber | lua require("dap.ext.autocompl").attach()' })
+vim.fn.sign_define('DapBreakpoint', { text = 'BR', texthl = 'DiffDelete', numhl = 'DiffDelete' })

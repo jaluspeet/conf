@@ -10,7 +10,6 @@ vim.keymap.set({ 'n', 'v' }, '<leader><leader>', require('telescope.builtin').bu
 vim.keymap.set({ 'n', 'v' }, '<leader>f', require('telescope.builtin').find_files, { desc = "Find" })
 vim.keymap.set({ 'n', 'v' }, '<leader>s', require('telescope.builtin').live_grep, { desc = "Grep" })
 vim.keymap.set({ 'n', 'v' }, '<leader>c', require('telescope.builtin').commands, { desc = "Commands" })
-vim.keymap.set({ 'n', 'v' }, '<leader>b', require('telescope.builtin').buffers, { desc = "Buffers" })
 vim.keymap.set({ 'n', 'v' }, '<leader>o', require('telescope.builtin').lsp_document_symbols, { desc = "Outline" })
 
 -- lsp
@@ -26,6 +25,14 @@ vim.keymap.set({ 'n', 'v' }, 'gd', require('telescope.builtin').lsp_definitions,
 vim.keymap.set({ 'n', 'v' }, 'gr', require('telescope.builtin').lsp_references, { desc = "References" })
 vim.keymap.set({ 'n', 'v' }, 'gs', vim.lsp.buf.signature_help, { desc = "Signature help" })
 vim.keymap.set({ 'n', 'v' }, 'gD', vim.lsp.buf.declaration, { desc = "Declaration" })
+
+-- debug
+
+vim.keymap.set({ 'n', 'v' }, '<F5>', require('dap').continue, { desc = "Debug Continue" })
+vim.keymap.set({ 'n', 'v' }, '<F10>', require('dap').step_over, { desc = "Step Over" })
+vim.keymap.set({ 'n', 'v' }, '<F11>', require('dap').step_into, { desc = "Step Into" })
+vim.keymap.set({ 'n', 'v' }, '<F12>', require('dap').step_out, { desc = "Step Out" })
+vim.keymap.set({ 'n', 'v' }, '<leader>b', require('dap').toggle_breakpoint, { desc = "Toggle Breakpoint" })
 
 -- move
 vim.keymap.set({ 'n', 'i', 'v', 't' }, '<C-Tab>', vim.cmd.tabnext, { desc = "Next tab" })
