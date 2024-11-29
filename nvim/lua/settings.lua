@@ -22,7 +22,6 @@ vim.o.title = true
 vim.opt.laststatus = 3
 vim.o.pumheight = 10
 vim.opt.showmode = false
-vim.o.cmdheight = 0
 vim.o.signcolumn = 'number'
 vim.o.fillchars='eob: '
 vim.cmd([[aunmenu PopUp.How-to\ disable\ mouse]])
