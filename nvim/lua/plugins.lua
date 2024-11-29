@@ -141,19 +141,6 @@ require('packer').startup(function(use)
 		require('plainline').setup()
 	end }
 
-	-- better quickfix
-	use { 'stevearc/quicker.nvim', config = function()
-		require("quicker").setup {
-			type_icons = {
-				E = "E ",
-				W = "W ",
-				I = "I ",
-				N = "N ",
-				H = "H ",
-			},
-		}
-	end }
-
 	-- autosave
 	use { 'Pocco81/auto-save.nvim', config = function()
 		require("auto-save").setup()
@@ -191,6 +178,11 @@ require('packer').startup(function(use)
 	-- file browser
 	use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' }, config = function()
 		require("nvim-tree").setup()
+	end }
+
+	-- quickfix
+	use { 'folke/trouble.nvim', config = function()
+		require('trouble').setup()
 	end }
 
 	-- plugins over this
