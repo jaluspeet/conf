@@ -36,6 +36,6 @@ vim.api.nvim_set_hl(0, 'DiagnosticUnderlineInfo', { undercurl = true, fg = 'Ligh
 vim.api.nvim_set_hl(0, 'DiagnosticUnderlineHint', { undercurl = true, fg = 'LightGrey' })
 vim.api.nvim_set_hl(0, 'DiagnosticUnderlineOk', { undercurl = true, fg = 'LightGreen' })
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber' })
-vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = 'setlocal norelativenumber' })
-vim.api.nvim_create_autocmd('FileType', { pattern = 'dap-repl', command = 'setlocal nonumber norelativenumber | lua require("dap.ext.autocompl").attach()' })
+vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = 'setlocal nonumber norelativenumber' })
+vim.api.nvim_create_autocmd('FileType', { pattern = 'dap-repl', command = 'setlocal nonumber norelativenumber' })
 vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = '', numhl = '' })

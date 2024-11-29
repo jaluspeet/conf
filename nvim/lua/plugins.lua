@@ -41,6 +41,12 @@ require('packer').startup(function(use)
 		config = function()
 			require('lsp-zero').preset().nvim_workspace()
 			require('lsp-zero').preset().ensure_installed { 'lua_ls' }
+			require('lsp-zero').preset().set_sign_icons {
+				error = 'x',
+				warn = '!',
+				hint = '~',
+				info = '?'
+			}
 			vim.diagnostic.config {
 				underline = true,
 				virtual_text = true
@@ -181,8 +187,8 @@ require('packer').startup(function(use)
 	end }
 
 	-- quickfix
-	use { 'folke/trouble.nvim', config = function()
-		require('trouble').setup()
+	use { 'yorickpeterse/nvim-pqf', config = function()
+		require('pqf').setup()
 	end }
 
 	-- plugins over this
