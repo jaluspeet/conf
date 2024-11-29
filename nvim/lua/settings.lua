@@ -1,7 +1,8 @@
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 15
 vim.g.paste = true
-vim.o.termguicolors = false
 vim.o.autoindent = true
 vim.g.autowrite = true
 vim.g.autowriteall = true
@@ -28,7 +29,8 @@ vim.o.fillchars='eob: '
 vim.cmd([[aunmenu PopUp.How-to\ disable\ mouse]])
 vim.cmd([[aunmenu PopUp.-1-]])
 
+vim.cmd.colorscheme 'habamax'
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = 'setlocal norelativenumber' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'dap-repl', command = 'setlocal nonumber norelativenumber | lua require("dap.ext.autocompl").attach()' })
-vim.fn.sign_define('DapBreakpoint', { text = 'BR', texthl = 'DiffDelete', numhl = 'DiffDelete' })
+vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = '', numhl = '' })

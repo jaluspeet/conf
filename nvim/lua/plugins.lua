@@ -41,13 +41,6 @@ require('packer').startup(function(use)
 		config = function()
 			require('lsp-zero').preset().nvim_workspace()
 			require('lsp-zero').preset().ensure_installed { 'lua_ls' }
-			require('lsp-zero').preset().set_sign_icons {
-				error = 'E',
-				warn = 'W',
-				hint = 'H',
-				info = 'I',
-			}
-
 			vim.diagnostic.config {
 				underline = true,
 				virtual_text = true
@@ -161,16 +154,6 @@ require('packer').startup(function(use)
 		}
 	end }
 
-	-- colorscheme
-	use { 'Mofiqul/vscode.nvim', config = function()
-		require('vscode').setup {
-			transparent = true,
-			italic_comments = true,
-			underline_links = true
-		}
-		vim.cmd.colorscheme 'vscode'
-	end }
-
 	-- autosave
 	use { 'Pocco81/auto-save.nvim', config = function()
 		require("auto-save").setup()
@@ -189,22 +172,7 @@ require('packer').startup(function(use)
 		}
 	end }
 	use { "rcarriga/nvim-dap-ui", requires = { "nvim-neotest/nvim-nio" }, config = function()
-		require("dapui").setup {
-			icons = { expanded = "🞃", collapsed = "🞂", current_frame = "→" },
-			controls = {
-				icons = {
-					pause = "PAUSE",
-					play = "RUN",
-					step_into = "INTO",
-					step_over = "OVER",
-					step_out = "OUT",
-					step_back = "BACK",
-					run_last = "LAST",
-					terminate = "KILL",
-					disconnect = "EXIT"
-				}
-			}
-		}
+		require("dapui").setup()
 		local dap, dapui = require("dap"), require("dapui")
 		dap.listeners.before.attach.dapui_config = function()
 			dapui.open()
@@ -220,6 +188,10 @@ require('packer').startup(function(use)
 		end
 	end }
 
+	-- file browser
+	use { 'nvim-tree/nvim-tree.lua',  requires = {'nvim-tree/nvim-web-devicons'}, config = function()
+		require("nvim-tree").setup()
+	end }
 
 	-- plugins over this
 	if packer_bootstrap then

@@ -2,7 +2,7 @@ vim.g.mapleader = ' '
 
 -- open
 vim.keymap.set({ 'n', 'v' }, '<leader>n', vim.cmd.noh, { desc = "Clear" })
-vim.keymap.set({ 'n', 'i', 'v', 't' }, '<C-b>', function() vim.cmd.Lexplore{ bang = true } end, { desc = "Sidebar" })
+vim.keymap.set({ 'n', 'i', 'v', 't' }, '<C-b>', vim.cmd.NvimTreeToggle, { desc = "Sidebar" })
 vim.keymap.set({ 'n', 'i', 'v', 't' }, '<C-x>', function() vim.cmd("wa") require('toggleterm').exec("make") end, { desc = "Make" })
 
 -- search
