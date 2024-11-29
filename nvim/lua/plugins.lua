@@ -189,7 +189,7 @@ require('packer').startup(function(use)
 	end }
 
 	-- file browser
-	use { 'nvim-tree/nvim-tree.lua',  requires = {'nvim-tree/nvim-web-devicons'}, config = function()
+	use { 'nvim-tree/nvim-tree.lua', requires = { 'nvim-tree/nvim-web-devicons' }, config = function()
 		require("nvim-tree").setup()
 	end }
 

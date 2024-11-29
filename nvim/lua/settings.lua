@@ -29,7 +29,8 @@ vim.o.fillchars='eob: '
 vim.cmd([[aunmenu PopUp.How-to\ disable\ mouse]])
 vim.cmd([[aunmenu PopUp.-1-]])
 
-vim.cmd.colorscheme 'habamax'
+-- vim.cmd.colorscheme 'wildcharm'
+vim.api.nvim_set_hl(0, 'Normal', { bg='NONE', ctermbg='NONE' })
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = 'setlocal norelativenumber' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'dap-repl', command = 'setlocal nonumber norelativenumber | lua require("dap.ext.autocompl").attach()' })
