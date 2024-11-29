@@ -24,6 +24,7 @@ vim.o.pumheight = 10
 vim.opt.showmode = false
 vim.o.signcolumn = 'number'
 vim.o.fillchars='eob: '
+vim.lsp.inlay_hint.enable(true, { 0 })
 vim.cmd([[aunmenu PopUp.How-to\ disable\ mouse]])
 vim.cmd([[aunmenu PopUp.-1-]])
 
@@ -38,4 +39,4 @@ vim.api.nvim_set_hl(0, 'DiagnosticUnderlineOk', { undercurl = true, fg = 'LightG
 vim.api.nvim_create_autocmd('TermOpen', { command = 'setlocal nonumber norelativenumber' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'qf', command = 'setlocal nonumber norelativenumber' })
 vim.api.nvim_create_autocmd('FileType', { pattern = 'dap-repl', command = 'setlocal nonumber norelativenumber' })
-vim.fn.sign_define('DapBreakpoint', { text = '🔴', texthl = '', numhl = '' })
+vim.fn.sign_define('DapBreakpoint', { text = 'B!', texthl = 'ErrorMsg', numhl = 'ErrorMsg' })

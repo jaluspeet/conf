@@ -191,6 +191,11 @@ require('packer').startup(function(use)
 		require('pqf').setup()
 	end }
 
+	-- indent lines
+	use { "lukas-reineke/indent-blankline.nvim", config = function()
+		require("ibl").setup()
+	end }
+
 	-- plugins over this
 	if packer_bootstrap then
 		require('packer').sync()
