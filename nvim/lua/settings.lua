@@ -22,7 +22,7 @@ vim.o.title = true
 vim.opt.laststatus = 3
 vim.o.pumheight = 10
 vim.opt.showmode = false
-vim.o.signcolumn = 'number'
+vim.o.cmdheight = 0
 vim.o.fillchars='eob: '
 vim.lsp.inlay_hint.enable(true, { 0 })
 vim.cmd([[aunmenu PopUp.How-to\ disable\ mouse]])
@@ -30,6 +30,7 @@ vim.cmd([[aunmenu PopUp.-1-]])
 
 vim.cmd.colorscheme 'lunaperche'
 vim.api.nvim_set_hl(0, 'Normal', { bg='NONE', ctermbg='NONE' })
+vim.api.nvim_set_hl(0, 'WinSeparator', { bg='NONE', ctermbg='NONE' })
 vim.api.nvim_set_hl(0, 'Function', { link = 'Changed' })
 vim.api.nvim_set_hl(0, 'DiagnosticUnderlineError', { undercurl = true, fg = 'Red' })
 vim.api.nvim_set_hl(0, 'DiagnosticUnderlineWarn', { undercurl = true, fg = 'Orange' })
