@@ -22,7 +22,6 @@ vim.o.title = true
 vim.opt.laststatus = 3
 vim.o.pumheight = 10
 vim.opt.showmode = false
-vim.o.cmdheight = 0
 vim.o.fillchars='eob: '
 vim.lsp.inlay_hint.enable(true, { 0 })
 vim.cmd([[aunmenu PopUp.How-to\ disable\ mouse]])
