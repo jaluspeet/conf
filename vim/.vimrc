@@ -11,7 +11,6 @@ set hlsearch
 set number
 set relativenumber
 set noswapfile
-set cursorline
 set ignorecase
 set smartcase
 set nowrap
