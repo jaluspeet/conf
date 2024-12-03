@@ -46,6 +46,7 @@ let g:lsp_diagnostics_highlights_enabled = 1
 let g:lsp_diagnostics_highlight_delay = 0
 let g:lsp_diagnostics_virtual_text_enabled = 0
 let g:lsp_diagnostics_echo_cursor = 1
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 1 } }
 
 
 " FUNCTIONS
@@ -87,14 +88,12 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-Plug 'github/copilot.vim'
 call plug#end()
 
 
 " AUTOCMD
-autocmd TerminalOpen * setlocal nonumber norelativenumber
 autocmd FileType qf setlocal norelativenumber
-autocmd InsertLeave,TextChanged,TextChangedI * update
+autocmd InsertLeave * update
 
 
 " COLORS
@@ -102,10 +101,10 @@ colorscheme lunaperche
 set background=dark
 highlight Normal ctermbg=NONE guibg=NONE
 highlight link Function PreProc
-highlight LspErrorText ctermbg=Red guibg=Red ctermfg=White guifg=White
-highlight LspWarningText ctermbg=Yellow guibg=Yellow ctermfg=Black guifg=Black
-highlight LspInformationText ctermbg=Blue guibg=Blue ctermfg=White guifg=White
-highlight LspHintText ctermbg=Green guibg=Green ctermfg=White guifg=White
+highlight LspErrorText ctermfg=Red guifg=Red
+highlight LspWarningText ctermfg=Yellow guifg=Yellow
+highlight LspInformationText ctermfg=Blue guifg=Blue
+highlight LspHintText ctermfg=Green guifg=Green
 highlight LspErrorHighlight cterm=underline term=underline ctermfg=Red guifg=Red
 highlight LspWarningHighlight cterm=underline term=underline ctermfg=Yellow guifg=Yellow
 highlight LspInformationHighlight cterm=underline term=underline ctermfg=Blue guifg=Blue
@@ -126,11 +125,11 @@ nnoremap <silent><C-s> :w!<CR>
 nnoremap <C-x> :term<UP>
 
 nnoremap <silent><leader>n :noh<CR>
-nnoremap <silent><leader>f :Files!<CR>
-nnoremap <silent><leader>s :Rg!<CR>
-nnoremap <silent><leader>c :Commands!<CR>
-nnoremap <silent><leader>b :Buffers!<CR>
-nnoremap <silent><leader>g :Commits!<CR>
+nnoremap <silent><leader>f :Files<CR>
+nnoremap <silent><leader>s :Rg<CR>
+nnoremap <silent><leader>c :Commands<CR>
+nnoremap <silent><leader>b :Buffers<CR>
+nnoremap <silent><leader>g :Commits<CR>
 
 inoremap <expr><Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
