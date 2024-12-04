@@ -11,7 +11,6 @@ export FZF_DEFAULT_OPTS='--color=16'
 
 # alias
 alias lss='ls -lah'
-alias gtt='lazygit'
 alias cdd='cd $(fd --type directory | fzf)'
 
 # functions / keybindings
