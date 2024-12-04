@@ -97,7 +97,7 @@ autocmd InsertLeave * update
 
 
 " COLORS
-colorscheme lunaperche
+colorscheme habamax
 set background=dark
 highlight Normal ctermbg=NONE guibg=NONE
 highlight link Function PreProc
@@ -109,10 +109,6 @@ highlight LspErrorHighlight cterm=underline term=underline ctermfg=Red guifg=Red
 highlight LspWarningHighlight cterm=underline term=underline ctermfg=Yellow guifg=Yellow
 highlight LspInformationHighlight cterm=underline term=underline ctermfg=Blue guifg=Blue
 highlight LspHintHighlight cterm=underline term=underline ctermfg=Green guifg=Green
-highlight link lsperrorvirtualtext nontext
-highlight link lspwarningvirtualtext nontext
-highlight link lspinformationvirtualtext nontext
-highlight link LspHintVirtualText NonText
 
 
 " KEYBINDS
