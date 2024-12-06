@@ -15,6 +15,8 @@ exec --no-startup-id                                   export SSH_AUTH_SOCK
 exec --no-startup-id                                   nm-applet
 exec --no-startup-id                                   volumeicon
 exec --no-startup-id                                   udiskie
+exec --no-startup-id				       /usr/bin/env systemctl start --u sunshine
+exec --no-startup-id				       i3-autolayout autolayout
 
 # LAYOUT
 bindsym $mod+Tab                                       workspace next
@@ -76,7 +78,13 @@ bindsym $mod+f                                         focus mode_toggle
 bindsym $mod+a                                         focus parent
 
 # EXCEPTIONS
-for_window                                             [window_role="About"] floating enable
+for_window [window_role="About"]                        floating enable
+for_window [window_role="pop-up"]                       floating enable
+for_window [window_role="bubble"]                       floating enable
+for_window [window_role="task_dialog"]                  floating enable
+for_window [window_role="Preferences"]                  floating enable
+for_window [window_type="dialog"]                       floating enable
+for_window [window_type="menu"]                         floating enable
 
 # MODES
 set $mode_display DISPLAY (1) day, (2) night 
