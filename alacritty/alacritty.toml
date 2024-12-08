@@ -26,7 +26,7 @@ white = "0xdddddd"
 yellow = "0xcecb00"
 
 [colors.primary]
-background = "0x202020"
+background = "0x222222"
 foreground = "0xffffff"
 
 [env]
@@ -34,7 +34,7 @@ TERM = "xterm-256color"
 ALACRITTY = "true"
 
 [font]
-size = 9
+size = 13.5
 
 [font.normal]
 family = "JetBrains Mono"
@@ -50,6 +50,7 @@ history = 100000
 [window]
 dynamic_title = true
 title = "Terminal"
+startup_mode = "maximized"
 
 [general]
 live_config_reload = true

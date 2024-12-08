@@ -97,7 +97,7 @@ autocmd InsertLeave * update
 
 
 " COLORS
-colorscheme habamax
+colorscheme wildcharm
 set background=dark
 highlight Normal ctermbg=NONE guibg=NONE
 highlight link Function PreProc
