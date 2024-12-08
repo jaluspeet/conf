@@ -1,0 +1,55 @@
+[colors]
+draw_bold_text_with_bright_colors = false
+
+[colors.bright]
+black = "0x767676"
+blue = "0x1a8fff"
+cyan = "0x14ffff"
+green = "0xfffd00"
+magenta = "0xfd28ff"
+red = "0xf2201f"
+white = "0xffffff"
+yellow = "0xfffd00"
+
+[colors.cursor]
+cursor = "0x999999"
+text = "0x000000"
+
+[colors.normal]
+black = "0x000000"
+blue = "0x0d73cc"
+cyan = "0x0dcdcd"
+green = "0x19cb00"
+magenta = "0xcb1ed1"
+red = "0xcc0403"
+white = "0xdddddd"
+yellow = "0xcecb00"
+
+[colors.primary]
+background = "0x202020"
+foreground = "0xffffff"
+
+[env]
+TERM = "xterm-256color"
+ALACRITTY = "true"
+
+[font]
+size = 9
+
+[font.normal]
+family = "JetBrains Mono"
+
+[[keyboard.bindings]]
+chars = "\u001BB"
+key = "Left"
+mods = "Alt"
+
+[scrolling]
+history = 100000
+
+[window]
+dynamic_title = true
+title = "Terminal"
+
+[general]
+live_config_reload = true
